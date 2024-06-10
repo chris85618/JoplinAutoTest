@@ -217,12 +217,27 @@ Edit Notebook With New Title
 
 ## Delete Notebook
 
+Delete Notebook
+    [Arguments]    ${notebook_title}
+    Click On The Main Sidebar
+    And Long Press    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[@text="${notebook_title}"]
+    Click Delete
+    Sleep    1s
+    Page Should Not Contain Element    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[@text="${notebook_title}"]
+    Back to Home Page from Sidebar
+
 Click Delete
     Wait Until Element Is Visible    //android.widget.Button[@text="DELETE"]
     Click Element    //android.widget.Button[@text="DELETE"]
     Wait Until Element Is Visible    //android.widget.Button[@text="OK"]
     Click Element    //android.widget.Button[@text="OK"]
 
+
+Assert No Any Note and Todo
+    Page Should Contain Text    There are currently no notes. Create one by clicking on the \(+\) button.
+
+Assert Note Or Todo Existed
+    Page Should Contain Element    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup
 
 Create Note And Todo
     [Arguments]    ${note_title}    ${todo_title}
