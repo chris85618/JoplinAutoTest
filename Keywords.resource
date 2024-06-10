@@ -64,6 +64,9 @@ Assert Title Not On List
     [Arguments]    ${text}
     Page Should Contain Text    ${text}
 
+Back to Home Page from Slide Menu
+    Click Element    //android.widget.Button[@content-desc="Sidebar"]
+
 Show All Notes
     Click On The Hamburger Menu
     Wait Until Element Is Visible    xpath=(//android.widget.TextView[@text="All notes"])
@@ -176,7 +179,7 @@ Assert Duplicated Notebooks Title
     Then Click On The Hamburger Menu
     Page Should Contain Text    ${notebook_title}    limit=2
 
-# New Notebook
+## New Notebook
 
 Add New Notebook
     [Arguments]    ${notebook_title}
@@ -196,7 +199,7 @@ Add New Notebook With Parent Notebook
     Click On Save Changes
     Page Should Contain Text    ${notebook_title}
 
-# Edit Notebook
+## Edit Notebook
 
 Click Edit Button
     Wait Until Element Is Visible    //android.widget.Button[@text="EDIT"]
@@ -211,6 +214,14 @@ Edit Notebook With New Title
     Input The New Notebook Title    ${new_notebook_title}
     Click On Save Changes
     Page Should Contain Text    ${new_notebook_title}
+
+## Delete Notebook
+
+Click Delete
+    Wait Until Element Is Visible    //android.widget.Button[@text="DELETE"]
+    Click Element    //android.widget.Button[@text="DELETE"]
+    Wait Until Element Is Visible    //android.widget.Button[@text="OK"]
+    Click Element    //android.widget.Button[@text="OK"]
 
 
 Create Note And Todo
