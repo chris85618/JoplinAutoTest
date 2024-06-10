@@ -64,11 +64,11 @@ Assert Title Not On List
     [Arguments]    ${text}
     Page Should Contain Text    ${text}
 
-Back to Home Page from Slide Menu
+Back to Home Page from Sidebar
     Click Element    //android.widget.Button[@content-desc="Sidebar"]
 
 Show All Notes
-    Click On The Hamburger Menu
+    Click On The Sidebar
     Wait Until Element Is Visible    xpath=(//android.widget.TextView[@text="All notes"])
     Click Element    xpath=(//android.widget.TextView[@text="All notes"])
 
@@ -76,11 +76,11 @@ Click On The Search Button
     Wait Until Element Is Visible    //android.widget.Button[@content-desc="Search"]
     Click Element    //android.widget.Button[@content-desc="Search"]
 
-Click On The Hamburger Menu
+Click On The Sidebar
     Wait Until Element Is Visible    //android.widget.Button[@content-desc="Sidebar"]
     Click Element    //android.widget.Button[@content-desc="Sidebar"]
 
-Click On The Main Hamburger Menu
+Click On The Main Sidebar
     Wait Until Element Is Visible    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.widget.TextView[1]
     Click Element    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.widget.TextView[1]
 
@@ -176,14 +176,14 @@ Add Todo
 # Notebook
 Assert Duplicated Notebooks Title
     [Arguments]    ${notebook_title}
-    Then Click On The Hamburger Menu
+    Then Click On The Sidebar
     Page Should Contain Text    ${notebook_title}    limit=2
 
 ## New Notebook
 
 Add New Notebook
     [Arguments]    ${notebook_title}
-    Click On The Main Hamburger Menu
+    Click On The Main Sidebar
     Click On The New Notebook
     Input The New Notebook Title    ${notebook_title}
     Click On Save Changes
@@ -192,7 +192,7 @@ Add New Notebook
 
 Add New Notebook With Parent Notebook
     [Arguments]    ${notebook_title}    ${target_parent_notebook}
-    Click On The Main Hamburger Menu
+    Click On The Main Sidebar
     Click On The New Notebook
     Input The New Notebook Title    ${notebook_title}
     Click On Select Parent Notebook    ${target_parent_notebook}
@@ -208,7 +208,7 @@ Click Edit Button
 
 Edit Notebook With New Title
     [Arguments]    ${origin_notebook_xpath}    ${new_notebook_title}
-    Click On The Main Hamburger Menu
+    Click On The Main Sidebar
     Then Long Press    ${origin_notebook_xpath}
     Click Edit Button
     Input The New Notebook Title    ${new_notebook_title}

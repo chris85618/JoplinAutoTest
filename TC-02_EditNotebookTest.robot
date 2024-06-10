@@ -21,7 +21,7 @@ Edit Notebook Test With Duplicated Notebook
 Fail to Edit Notebook Because Empty Title Test
     Given Application is opened
     [Teardown]    Close Application
-    When Click On The Main Hamburger Menu
+    When Click On The Main Sidebar
     And Long Press    //android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[5]/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView
     And Click Edit Button
     And Input The New Notebook Title    ${EMPTY}

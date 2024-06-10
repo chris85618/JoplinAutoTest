@@ -26,6 +26,6 @@ Add New Notebook With Parent Notebook Test
 Fail to Add New Notebook Because Empty Title Test
     Given Application is opened
     [Teardown]    Close Application
-    When Click On The Main Hamburger Menu
+    When Click On The Main Sidebar
     And Click On The New Notebook
     Then Save Changes Should Be Disabled
