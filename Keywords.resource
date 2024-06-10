@@ -216,7 +216,6 @@ Add Note
     Exit Edit Mode
     Page Should Contain Text    ${title}
     Back To Home Page
-    Assert Title On List    ${title}
 
 Add Todo
     [Arguments]    ${title}
@@ -226,7 +225,6 @@ Add Todo
     Exit Edit Mode
     Page Should Contain Text    ${title}
     Back To Home Page
-    Assert Title On List    ${title}
 
 # Notebook
 Assert Duplicated Notebooks Title
@@ -298,6 +296,8 @@ Create Note And Todo
     [Arguments]    ${note_title}    ${todo_title}
     Add Note    ${note_title}
     Add Todo    ${todo_title}
+    Assert Title On List    ${todo_title}
+    Assert Title On List    ${note_title}
     Show All Notes
 
 Add New Note
@@ -305,6 +305,14 @@ Add New Note
     [Setup]    Open Test Application
     [Teardown]    Close Application
     Add Note    ${title}
+    Assert Title On List    ${title}
+
+Add New Todo
+    [Arguments]    ${title}
+    [Setup]    Open Test Application
+    [Teardown]    Close Application
+    Add Todo    ${title}
+    Assert Title On List    ${title}
 
 Edit Note And Todo
     [Arguments]    ${note_title}    ${todo_title}
