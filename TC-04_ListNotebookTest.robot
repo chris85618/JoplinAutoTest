@@ -6,7 +6,7 @@ Resource    Keywords.resource
 
 
 *** Test Cases ***
-List Empty Notebook Test
+List All with Empty Note Todo Test
    Given Application is opened
    [Teardown]    Close Application
    And Delete Notebook    Welcome\!
@@ -14,7 +14,7 @@ List Empty Notebook Test
    When Show All Notes
    Then Assert No Any Note and Todo
 
-List One Notebook Test
+List All With One Single Note Todo Test
    Given Application is opened
    [Teardown]    Close Application
    And Delete Notebook    Welcome\!
