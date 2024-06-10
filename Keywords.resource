@@ -150,8 +150,27 @@ My Long Press
     ${tap_positions}=    create list    ${x}    ${y}
     Tap With Positions    ${duration}    ${tap_positions}
 
-# Notebook
+Add Note
+    [Arguments]    ${title}
+    Click On The Red Cross
+    Click On The New Note
+    Input Title    ${title}
+    Exit Edit Mode
+    Page Should Contain Text    ${title}
+    Back To Home Page
+    Assert Title On List    ${title}
 
+Add Todo
+    [Arguments]    ${title}
+    Click On The Red Cross
+    Click On The New Todo
+    Input Title    ${title}
+    Exit Edit Mode
+    Page Should Contain Text    ${title}
+    Back To Home Page
+    Assert Title On List    ${title}
+
+# Notebook
 Assert Duplicated Notebooks Title
     [Arguments]    ${notebook_title}
     Then Click On The Hamburger Menu
@@ -196,28 +215,15 @@ Edit Notebook With New Title
 
 Create Note And Todo
     [Arguments]    ${note_title}    ${todo_title}
-    Click On The Red Cross
-    Click On The New Note
-    Input Title    ${note_title}
-    Exit Edit Mode
-    Back To Home Page
-    Click On The Red Cross
-    Click On The New Todo
-    Input Title    ${todo_title}
-    Exit Edit Mode
-    Back To Home Page
+    Add Note    ${note_title}
+    Add Todo    ${todo_title}
     Show All Notes
 
 Add New Note
     [Arguments]    ${title}
     [Setup]    Open Test Application
     [Teardown]    Close Application
-    Click On The Red Cross
-    Click On The New Note
-    Input Title    ${title}
-    Exit Edit Mode
-    Back To Home Page
-    Assert Title On List    ${title}
+    Add Note    ${title}
 
 Edit Note And Todo
     [Arguments]    ${note_title}    ${todo_title}
