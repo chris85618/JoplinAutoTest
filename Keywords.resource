@@ -111,9 +111,25 @@ Show All Notes
     Wait Until Element Is Visible    xpath=(//android.widget.TextView[@text="All notes"])
     Click Element    xpath=(//android.widget.TextView[@text="All notes"])
 
+Search
+    [Arguments]    ${target}
+    Click On The Search Button
+    Input Search Text    ${target}
+    Press Keycode    66
+
 Click On The Search Button
     Wait Until Element Is Visible    //android.widget.Button[@content-desc="Search"]
     Click Element    //android.widget.Button[@content-desc="Search"]
+
+Input Search Text
+    [Arguments]    ${search_text}
+    Wait Until Element Is Visible    //android.widget.EditText
+    Input Text    //android.widget.EditText    ${search_text}
+
+Assert Search Result
+    [Arguments]    ${title}
+    Wait Until Element Is Visible    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[@text="${title}"]
+    Page Should Contain Element    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[@text="${title}"]
 
 Click On The Sidebar
     Wait Until Element Is Visible    //android.widget.Button[@content-desc="Sidebar"]
