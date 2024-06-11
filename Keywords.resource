@@ -1,5 +1,6 @@
 *** Settings ***
 Library      AppiumLibrary
+Library           ClipboardUtils.py
 
 *** Variables ***
 ${ANDROID_AUTOMATION_NAME}    uiautomator2
@@ -77,6 +78,13 @@ Click On The New Todo
     Wait Until Element Is Visible    //android.widget.Button[@content-desc="New to-do"]
     Click Element    //android.widget.Button[@content-desc="New to-do"]
 
+Input Description
+    [Arguments]    ${text}
+    # Wait Until Element Is Visible    //android.webkit.WebView[@text="Note editor"]
+    # Click Element    //android.webkit.WebView[@text="Note editor"]
+    Wait Until Element Is Visible    //android.webkit.WebView[@text="Note editor"]/android.view.View/android.view.View/android.widget.EditText
+    Input Text    //android.webkit.WebView[@text="Note editor"]/android.view.View/android.view.View/android.widget.EditText    ${text}
+
 Input Title
     Wait Until Element Is Visible    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.widget.EditText
     [Arguments]    ${title}
@@ -93,6 +101,10 @@ Enter Edit Mode
 Back To Home Page
     Wait Until Element Is Visible    xpath=//android.widget.Button[@content-desc="Back"]/android.view.ViewGroup
     Click Element    xpath=//android.widget.Button[@content-desc="Back"]/android.view.ViewGroup
+
+Assert Title
+    [Arguments]    ${title}
+    Page Should Contain Element    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.widget.EditText[@text="${title}"]
 
 Assert Title On List
     [Arguments]    ${text}
@@ -313,6 +325,10 @@ Click Delete
     Click Element    //android.widget.Button[@text="OK"]
 
 
+Click Copy Markdown Link
+    Wait Until Element Is Visible    //android.widget.TextView[@text="Copy Markdown link"]
+    Click Element    //android.widget.TextView[@text="Copy Markdown link"]
+
 Assert No Any Note and Todo
     Page Should Contain Text    There are currently no notes. Create one by clicking on the \(+\) button.
 
@@ -370,3 +386,7 @@ Copy Note And Todo
     Long Press Title    ${todo_title}
     Click Copy Button
     Assert Title On List    ${todo_title} (1)
+
+Copy Markdown Link
+    Click On The Actions Menu
+    Click Copy Markdown Link
