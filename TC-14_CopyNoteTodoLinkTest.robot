@@ -17,6 +17,7 @@ Copy Todo Link Test
     And Back To Home Page
     And Open Note    target
     And Enter Edit Mode
+    Sleep    3s
     And Input Description    ${clipboard_text}
     And Exit Edit Mode
     Sleep    5s
@@ -35,6 +36,7 @@ Copy Note Link Test
     And Back To Home Page
     And Open Note    target
     And Enter Edit Mode
+    Sleep    3s
     And Input Description    ${clipboard_text}
     And Exit Edit Mode
     Sleep    5s
