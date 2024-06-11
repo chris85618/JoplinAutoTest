@@ -285,6 +285,7 @@ Add Tag for Note Todo
     Click OK
     Click On The Actions Menu
     Click Add Tags
+    Sleep    1s
     Page Should Contain Element    	//android.widget.TextView[@text="${tag}"]
     Click Cancel
 
