@@ -131,6 +131,30 @@ Open Properties
     Click On The Actions Menu
     Click Properties
 
+Convert Note To Todo
+    Click On The Actions Menu
+    Click Convert Note To Todo
+
+Convert Todo To Note
+    Click On The Actions Menu
+    Click Convert Todo To Note
+
+Assert Checkbox Existed
+    Wait Until Element Is Visible    //android.widget.CheckBox
+    Page Should Contain Element    //android.widget.CheckBox
+
+Then Assert Checkbox Not Existed
+    Wait Until Element Is Visible    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]
+    Page Should Not Contain Element    //android.widget.CheckBox
+
+Click Convert Note To Todo
+    Click Element    //android.widget.TextView[@text="Convert to todo"]
+    Assert Checkbox Existed
+
+Click Convert Todo To Note
+    Click Element    //android.widget.TextView[@text="Convert to note"]
+    Then Assert Checkbox Not Existed
+
 Click View On Map
     Click Element    //android.widget.TextView[@text="View on map"]
 
