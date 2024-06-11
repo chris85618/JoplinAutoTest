@@ -78,6 +78,10 @@ Click On The New Todo
     Wait Until Element Is Visible    //android.widget.Button[@content-desc="New to-do"]
     Click Element    //android.widget.Button[@content-desc="New to-do"]
 
+Click Properties
+    Wait Until Element Is Visible    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[@text="Properties"]
+    Click Element    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[@text="Properties"]
+
 Input Description
     [Arguments]    ${text}
     # Wait Until Element Is Visible    //android.webkit.WebView[@text="Note editor"]
@@ -122,6 +126,17 @@ Show All Notes
     Click On The Sidebar
     Wait Until Element Is Visible    xpath=(//android.widget.TextView[@text="All notes"])
     Click Element    xpath=(//android.widget.TextView[@text="All notes"])
+
+Open Properties
+    Click On The Actions Menu
+    Click Properties
+
+Click View On Map
+    Click Element    //android.widget.TextView[@text="View on map"]
+
+Assert No GeoLocation Info
+    Wait Until Element Is Visible    //android.widget.TextView[@text="This note does not have geolocation information."]
+    Page Should Contain Element    //android.widget.TextView[@text="This note does not have geolocation information."]
 
 Search
     [Arguments]    ${target}
